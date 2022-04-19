@@ -1,0 +1,20 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 FontFamily="Gidole" x:Class="squashr.Views.CreateLocalUserView"
+			 DataContext="{StaticResource CreateLocalUserViewModel}">
+	
+	<StackPanel Orientation="Vertical">
+		<TextBlock Text="create local user" Margin="20" FontSize="36"/>
+		<TextBox Name="usernameInput" Width="500" Height="75" Watermark="username..."/>
+		<TextBox Name="passwordInput" Width="500" Height="75" Watermark="password... (optional)"
+				 Margin="20"/>
+		<Button Name="createButton" Width="400" Height="75" Background="LightBlue"
+				Margin="20" HorizontalAlignment="Center">
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+					   FontSize="20" Text="create user"/>
+		</Button>
+	</StackPanel>
+</UserControl>

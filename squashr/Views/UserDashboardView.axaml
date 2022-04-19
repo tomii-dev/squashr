@@ -1,0 +1,40 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 FontFamily="Gidole" x:Class="squashr.Views.UserDashboardView"
+			 Background="#d4e6f0">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="7*" />
+			<ColumnDefinition Width="93*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Column="0" Grid.RowSpan="7" Background="#22c6dc" VerticalAlignment="Stretch">
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"
+					Background="#22c6dc">
+				<Image Source="/Assets/icon.ico"/>
+			</Button>
+		</StackPanel>
+		<TextBlock Text="{Binding WelcomeMessage}" FontSize="46"
+				   Margin="40" Grid.Column="1"/>
+		<StackPanel Margin="30" Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+			<Button Width="150" Height="200" Background="#bbd3e9"
+					CornerRadius="10" Margin="20"/>
+			<Button Width="150" Height="200" Background="#bbd3e9"
+					CornerRadius="10" Margin="20"/>
+			<Button Width="150" Height="200" Background="#bbd3e9"
+					CornerRadius="10" Margin="20"/>
+		</StackPanel>
+	</Grid>
+</UserControl>

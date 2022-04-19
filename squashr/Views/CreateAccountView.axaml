@@ -1,0 +1,72 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 FontFamily="Gidole" x:Class="squashr.Views.CreateAccountView"
+			 DataContext="{StaticResource CreateAccountViewModel}"
+			 Background="#d4e6f0">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*" />
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition Width="2*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="2*" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="2*" />
+		</Grid.RowDefinitions>
+		<Border Grid.Column="0" BorderBrush="#22c6dc" BorderThickness="8" Grid.ColumnSpan="3"
+				Grid.RowSpan="7"/>
+			<StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+				<TextBlock FontFamily="Gidole" 
+						   FontSize="40" 
+						   Text="welcome to squashr." 
+						   VerticalAlignment="Top" 
+						   Margin="0,-20,0,20" 
+						   HorizontalAlignment="Center"
+						   Grid.Column="1"/>
+				<Button Name="createLocal" MinWidth="500" MinHeight="100" HorizontalAlignment="Center"
+						CornerRadius="45" Margin="0,10,0,30" Background="#bfd4d6">
+					<Panel>
+						<Image Source="/Assets/pc.png" Width="90" Height="90" HorizontalAlignment="Left"
+							   Margin="15"/>
+						<TextBlock FontSize="28"
+								   Text="create local account"
+								   HorizontalAlignment="Left"
+								   VerticalAlignment="Top"
+								   Margin="125,10,0,0"/>
+						<TextBlock Text="manage bugs alone or with team members on&#x0a;your local network!" 
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Bottom" 
+								   Margin="32,0,0,42" 
+								   TextAlignment="Left"
+								   FontSize="15"/>
+					</Panel>
+				</Button>
+				<Button Name="createWeb" MinWidth="500" MinHeight="100" HorizontalAlignment="Center"
+						CornerRadius="45" Background="#bfd4d6">
+					<Panel>
+						<Image Source="/Assets/web.png" Width="90" Height="90" HorizontalAlignment="Left"
+							   Margin="15"/>
+						<TextBlock FontSize="28"
+								   Text="create web account"
+								   HorizontalAlignment="Left"
+								   VerticalAlignment="Top"
+								   Margin="125,10,0,0"/>
+						<TextBlock Text="manage bugs alone or with team members on&#x0a;your local network!"
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Bottom"
+								   Margin="32,0,0,42"
+								   TextAlignment="Left"
+								   FontSize="15"/>
+					</Panel>
+				</Button>
+			</StackPanel>
+	</Grid>
+</UserControl>
