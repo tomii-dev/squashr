@@ -5,10 +5,38 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.UserDashboardView"
 			 Background="#d4e6f0">
+	<UserControl.Styles>
+		<Style Selector="TextBlock.welcome">
+			<Style.Animations>
+				<Animation Duration="0:0:1">
+					<KeyFrame Cue="0%">
+						<Setter Property="Opacity" Value="0.0" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Opacity" Value="1.0" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="Button.option">
+			<Style.Animations>
+				<Animation Duration="0:0:0.5">
+					<KeyFrame Cue="0%">
+						<Setter Property="Margin" Value="200,0,0,0" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Margin" Value="20,0,0,0" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+	</UserControl.Styles>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="7*" />
-			<ColumnDefinition Width="93*"/>
+			<ColumnDefinition Width="31*"/>
+			<ColumnDefinition Width="31*"/>
+			<ColumnDefinition Width="31*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition />
@@ -26,15 +54,20 @@
 				<Image Source="/Assets/icon.ico"/>
 			</Button>
 		</StackPanel>
-		<TextBlock Text="{Binding WelcomeMessage}" FontSize="46"
-				   Margin="40" Grid.Column="1"/>
-		<StackPanel Margin="30" Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
-			<Button Width="150" Height="200" Background="#bbd3e9"
-					CornerRadius="10" Margin="20"/>
-			<Button Width="150" Height="200" Background="#bbd3e9"
-					CornerRadius="10" Margin="20"/>
-			<Button Width="150" Height="200" Background="#bbd3e9"
-					CornerRadius="10" Margin="20"/>
-		</StackPanel>
+		<TextBlock Classes="welcome" Text="{Binding WelcomeMessage}" FontSize="46"
+				   Margin="40" Grid.Column="1" Grid.ColumnSpan="3"/>
+		<Button Name="bugBtn" Background="#bbd3e9" Classes="option" Grid.Row="1"
+				CornerRadius="10" Margin="20" Grid.Column="1" HorizontalAlignment="Stretch"
+				Grid.RowSpan="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Center">
+			<StackPanel>
+				<TextBlock Text="manage bugs" FontSize="22" Margin="20"/>
+			</StackPanel>
+		</Button>
+		<Button Background="#bbd3e9" Classes="option" Grid.Row="1"
+		CornerRadius="10" Margin="20" Grid.Column="2" HorizontalAlignment="Stretch" 
+				VerticalAlignment="Stretch" Grid.RowSpan="4"/>
+		<Button Background="#bbd3e9" Classes="option" Grid.Row="1"
+		CornerRadius="10" Margin="20" Grid.Column="3" HorizontalAlignment="Stretch"
+				Grid.RowSpan="4" VerticalAlignment="Stretch"/>
 	</Grid>
 </UserControl>

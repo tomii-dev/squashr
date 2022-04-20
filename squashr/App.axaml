@@ -11,6 +11,7 @@
 		<vm:CreateAccountViewModel x:Key="CreateAccountViewModel" />
 		<vm:CreateLocalUserViewModel x:Key="CreateLocalUserViewModel" />
 		<vm:SelectUserViewModel x:Key="SelectUserViewModel" />
+		<vm:ProjectViewModel x:Key="ProjectViewModel" />
 	</Application.Resources>
 
     <Application.Styles>

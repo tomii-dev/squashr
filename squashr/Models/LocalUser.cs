@@ -1,5 +1,5 @@
 ﻿using ProtoBuf;
-using Avalonia.Media.Imaging;
+using System.Collections.Generic;
 
 namespace squashr.Models
 {
@@ -12,5 +12,7 @@ namespace squashr.Models
         public string Password { get; set; }
         [ProtoMember(3)]
         public string PfpPath { get; set; }
+        [ProtoMember(4)]
+        public List<Project> Projects { get; set; }
     }
 }

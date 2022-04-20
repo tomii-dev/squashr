@@ -13,8 +13,7 @@ namespace squashr.Services
 
         static Data()
         {
-            try
-            {
+            try{
                 _localUsers =
                     Serializer.Deserialize<List<LocalUser>>(new FileStream("usr.sq", FileMode.Open, FileAccess.Read));
             }catch (Exception e) { 
