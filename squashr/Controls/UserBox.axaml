@@ -4,7 +4,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Controls.UserBox">
-	<Button Name="Button" CornerRadius="10" Background="#bfd4d6"
+	<Button Name="Btn" CornerRadius="10" Background="#bfd4d6"
 			HorizontalAlignment="Center" Padding="10" Width="200" Height="250"
 			Margin="30">
 		<StackPanel>

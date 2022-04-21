@@ -18,18 +18,6 @@
 				</Animation>
 			</Style.Animations>
 		</Style>
-		<Style Selector="Button.option">
-			<Style.Animations>
-				<Animation Duration="0:0:0.5">
-					<KeyFrame Cue="0%">
-						<Setter Property="Margin" Value="200,0,0,0" />
-					</KeyFrame>
-					<KeyFrame Cue="100%">
-						<Setter Property="Margin" Value="20,0,0,0" />
-					</KeyFrame>
-				</Animation>
-			</Style.Animations>
-		</Style>
 	</UserControl.Styles>
 	<Grid>
 		<Grid.ColumnDefinitions>
@@ -56,7 +44,7 @@
 		</StackPanel>
 		<TextBlock Classes="welcome" Text="{Binding WelcomeMessage}" FontSize="46"
 				   Margin="40" Grid.Column="1" Grid.ColumnSpan="3"/>
-		<Button Name="bugBtn" Background="#bbd3e9" Classes="option" Grid.Row="1"
+		<Button Name="bugBtn" Background="#bbd3e9" Grid.Row="1"
 				CornerRadius="10" Margin="20" Grid.Column="1" HorizontalAlignment="Stretch"
 				Grid.RowSpan="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Center">
 			<StackPanel>

@@ -16,7 +16,7 @@ namespace squashr.Services
             try{
                 _localUsers =
                     Serializer.Deserialize<List<LocalUser>>(new FileStream("usr.sq", FileMode.Open, FileAccess.Read));
-            }catch (Exception e) { 
+            }catch { 
                 _localUsers = new List<LocalUser>();
             }
         }

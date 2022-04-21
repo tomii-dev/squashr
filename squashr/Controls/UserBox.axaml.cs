@@ -12,8 +12,7 @@ namespace squashr.Controls
         private Image _pfp;
         private Button _button;
         private LocalUser _user;
-        public LocalUser User { 
-            get { return _user; } 
+        public LocalUser User {
             set {
                 Update(value);
             } 
@@ -25,14 +24,14 @@ namespace squashr.Controls
             InitializeComponent();
             _usernameText = this.Find<TextBlock>("Username");
             _pfp = this.Find<Image>("Pfp");
-            _button = this.Find<Button>("Button");
+            _button = this.Find<Button>("Btn");
 
             _button.Click += OnButtonClick;
         }
 
         private void OnButtonClick(object? sender, RoutedEventArgs e)
         {
-            MainWindowViewModel.InvokeViewChanged(new UserDashboardViewModel(User));
+            MainWindowViewModel.InvokeViewChanged(new UserDashboardViewModel(_user));
         }
 
         private void Update(LocalUser user)
