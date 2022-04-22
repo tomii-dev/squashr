@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using squashr.ViewModels;
+using squashr.Services;
 
 namespace squashr.Views
 {
@@ -17,7 +18,7 @@ namespace squashr.Views
 
         private void _bugButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            MainWindowViewModel.InvokeViewChanged(new ProjectViewModel());
+            MainWindowViewModel.InvokeViewChanged(new SelectProjectViewModel());
         }
     }
 }

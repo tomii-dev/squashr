@@ -3,9 +3,9 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 FontFamily="Gidole" x:Class="squashr.Views.ProjectView"
-			 Background="#d4e6f0">
-	<StackPanel Name="Panel" Orientation="Horizontal">
-		
-	</StackPanel>
+			 FontFamily="Gidole" x:Class="squashr.Controls.CreateProjectButton">
+	<Button Name="Btn" Background="#3bffb4" Width="200" Height="250"
+			HorizontalContentAlignment="Center">
+		<TextBlock FontSize="26" Text="create project" Margin="10" />
+	</Button>
 </UserControl>

@@ -9,6 +9,7 @@ namespace squashr.Controls
     {
         private Button _button;
         private TextBlock _title;
+        private Project _project;
         public Project Project { 
             set { Update(value); }
         }
@@ -24,6 +25,7 @@ namespace squashr.Controls
         private void Update(Project project)
         {
             _title.Text = project.Name;
+            _project = project;
         }
 
         private void OnButtonClicked(object sender, RoutedEventArgs e)

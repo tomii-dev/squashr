@@ -7,12 +7,17 @@ using System.IO;
 namespace squashr.Services
 {
     public static class Data
-    {
+    { 
         private static List<LocalUser> _localUsers;
+        private static LocalUser _currentUser;
         public static List<LocalUser> LocalUsers { get { return _localUsers; } }
-
+        public static LocalUser CurrentUser { 
+            get { return _currentUser; } 
+            set { _currentUser = value; }
+        }
         static Data()
         {
+            _currentUser = new LocalUser();
             try{
                 _localUsers =
                     Serializer.Deserialize<List<LocalUser>>(new FileStream("usr.sq", FileMode.Open, FileAccess.Read));
