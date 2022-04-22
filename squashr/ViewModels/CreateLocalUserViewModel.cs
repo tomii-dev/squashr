@@ -1,10 +1,7 @@
-﻿using System;
-using Avalonia.Interactivity;
+﻿using Avalonia.Interactivity;
 using Avalonia.Controls;
 using squashr.Models;
 using squashr.Services;
-using System.Windows.Media.Imaging;
-using Avalonia.Media.Imaging;
 
 namespace squashr.ViewModels
 {
@@ -23,6 +20,7 @@ namespace squashr.ViewModels
             localUser.Password = _password;
             localUser.PfpPath = "usr/pfp/default.png";
             Data.AddLocalUser(localUser);
+            Data.CurrentUser = localUser;
             MainWindowViewModel.InvokeViewChanged(new UserDashboardViewModel(localUser));
         }
 

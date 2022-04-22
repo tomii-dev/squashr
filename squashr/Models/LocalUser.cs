@@ -14,5 +14,10 @@ namespace squashr.Models
         public string PfpPath { get; set; }
         [ProtoMember(4)]
         public List<Project> Projects { get; set; }
+
+        public LocalUser()
+        {
+            Projects = new List<Project>();
+        }
     }
 }

@@ -6,7 +6,7 @@
 			 FontFamily="Gidole" x:Class="squashr.Views.SelectProjectView"
 			 Background="#d4e6f0" DataContext="{StaticResource SelectProjectViewModel}">
 	<Panel>
-		<TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="20" 
+		<TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="30" 
 				   FontSize="40"/>
 		<StackPanel Name="Panel" Orientation="Horizontal" HorizontalAlignment="Center">
 

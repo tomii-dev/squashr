@@ -26,7 +26,7 @@ namespace squashr.Services
             }
         }
 
-        private static void PushUsers()
+        private static void Push()
         {
             FileStream fileStream = new FileStream("usr.sq", FileMode.OpenOrCreate, FileAccess.Write);
             Serializer.Serialize(fileStream, _localUsers);
@@ -35,7 +35,15 @@ namespace squashr.Services
         public static void AddLocalUser(LocalUser localUser)
         {
             _localUsers.Add(localUser);
-            PushUsers();
+            Push();
+        }
+
+        public static void AddProject(Project project)
+        {
+            foreach (LocalUser user in _localUsers)
+                if(user == _currentUser)
+                    user.Projects.Add(project);
+            Push();
         }
     }
 }

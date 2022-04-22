@@ -35,7 +35,6 @@ namespace squashr.Controls
         {
             MainWindowViewModel.InvokeViewChanged(new UserDashboardViewModel(_user));
             Data.CurrentUser = _user;
-            Console.WriteLine("mhm");
         }
 
         private void Update(LocalUser user)

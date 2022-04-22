@@ -20,7 +20,6 @@ namespace squashr.ViewModels
         }
         public SelectProjectViewModel()
         {
-            Title = $"{Data.CurrentUser.Username}'s projects";
         }
 
         public void RenderProjects(StackPanel panel)
@@ -28,8 +27,10 @@ namespace squashr.ViewModels
             if (Data.CurrentUser.Projects != null)
                 foreach (Project project in Data.CurrentUser.Projects)
                 {
+                    Console.WriteLine(project.Name);
                     ProjectBox box = new ProjectBox();
                     box.Project = project;
+                    box.Find<TextBlock>("Title").Text = project.Name;
                     panel.Children.Add(box);
                 }
             panel.Children.Add(new CreateProjectButton());
