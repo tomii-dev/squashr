@@ -2,6 +2,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:controls="using:squashr.Controls"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.UserDashboardView"
 			 Background="#d4e6f0">
@@ -35,13 +36,7 @@
 			<RowDefinition />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-
-		<StackPanel Grid.Column="0" Grid.RowSpan="7" Background="#22c6dc" VerticalAlignment="Stretch">
-			<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"
-					Background="#22c6dc">
-				<Image Source="/Assets/icon.ico"/>
-			</Button>
-		</StackPanel>
+		<controls:Navbar Grid.Column="0" Grid.RowSpan="7"/>
 		<TextBlock Classes="welcome" Text="{Binding WelcomeMessage}" FontSize="46"
 				   Margin="40" Grid.Column="1" Grid.ColumnSpan="3"/>
 		<Button Name="bugBtn" Background="#bbd3e9" Grid.Row="1"

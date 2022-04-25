@@ -14,5 +14,7 @@ namespace squashr.Models
         public int HostId { get; set; }
         [ProtoMember(4)]
         public List<Member> Members { get; set; }
+        [ProtoMember(5)]
+        public List<Bug> Bugs { get; set; }
     }
 }

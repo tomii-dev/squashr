@@ -30,7 +30,9 @@ namespace squashr.Controls
 
         private void OnButtonClicked(object sender, RoutedEventArgs e)
         {
-            MainWindowViewModel.InvokeViewChanged(new ViewModelBase());
+            ProjectViewModel projectView = new ProjectViewModel();
+            projectView.Project = _project;
+            MainWindowViewModel.InvokeViewChanged(projectView);
         }
     }
 }
