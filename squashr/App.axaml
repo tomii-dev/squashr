@@ -7,14 +7,6 @@
         <local:ViewLocator/>
     </Application.DataTemplates>
 
-	<Application.Resources>
-		<vm:CreateAccountViewModel x:Key="CreateAccountViewModel" />
-		<vm:CreateLocalUserViewModel x:Key="CreateLocalUserViewModel" />
-		<vm:SelectUserViewModel x:Key="SelectUserViewModel" />
-		<vm:SelectProjectViewModel x:Key="SelectProjectViewModel" />
-		<vm:CreateProjectViewModel x:Key="CreateProjectViewModel" />
-	</Application.Resources>
-
     <Application.Styles>
         <FluentTheme Mode="Light"/>
     </Application.Styles>

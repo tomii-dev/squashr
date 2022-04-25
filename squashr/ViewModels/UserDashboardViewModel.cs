@@ -1,15 +1,14 @@
-﻿using squashr.Views;
-using squashr.Models;
-using Avalonia.Interactivity;
+﻿using squashr.Services;
 
 namespace squashr.ViewModels
 {
     public class UserDashboardViewModel : ViewModelBase
     {
         public string WelcomeMessage { get; set; }
-        public UserDashboardViewModel(LocalUser user)
+
+        public UserDashboardViewModel()
         {
-            WelcomeMessage = $"welcome back, {user.Username}";
+            WelcomeMessage = $"welcome back, {Data.CurrentUser.Username}";
         }
     }
 }

@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using squashr.Models;
 using Avalonia.Media.Imaging;
 using squashr.ViewModels;
+using squashr.Views;
 using squashr.Services;
 using System;
 
@@ -33,8 +34,9 @@ namespace squashr.Controls
 
         private void OnButtonClick(object? sender, RoutedEventArgs e)
         {
-            MainWindowViewModel.InvokeViewChanged(new UserDashboardViewModel(_user));
             Data.CurrentUser = _user;
+            UserDashboardView view = new UserDashboardView();
+            MainWindowViewModel.InvokeViewChanged(view);
         }
 
         private void Update(LocalUser user)

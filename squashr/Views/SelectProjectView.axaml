@@ -4,12 +4,16 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.SelectProjectView"
-			 Background="#d4e6f0" DataContext="{StaticResource SelectProjectViewModel}">
+			 Background="#d4e6f0">
 	<Panel>
 		<TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="30" 
 				   FontSize="40"/>
-		<StackPanel Name="Panel" Orientation="Horizontal" HorizontalAlignment="Center">
-
-		</StackPanel>
+		<ItemsControl Items="{Binding Projects}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Name="Panel" Orientation="Horizontal" HorizontalAlignment="Center" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
 	</Panel>
 </UserControl>

@@ -3,8 +3,7 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 FontFamily="Gidole" x:Class="squashr.Views.SelectUserView"
-			 DataContext="{StaticResource SelectUserViewModel}">
+			 FontFamily="Gidole" x:Class="squashr.Views.SelectUserView">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10*"/>	
@@ -13,7 +12,13 @@
 		</Grid.RowDefinitions>
 		<TextBlock Text="select user" HorizontalAlignment="Center"
 			FontSize="36" Margin="20" Grid.Row="0"/>
-		<StackPanel Name="UserList" HorizontalAlignment="Center"
-					Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" />
+		<ItemsControl Items="{Binding Users}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel HorizontalAlignment="Center" Grid.Row="1" 
+								VerticalAlignment="Top" Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
 	</Grid>
 </UserControl>

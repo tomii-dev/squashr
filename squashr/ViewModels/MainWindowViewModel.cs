@@ -1,14 +1,16 @@
 using System;
 using System.ComponentModel;
 using squashr.Services;
+using squashr.Views;
+using Avalonia.Controls;
 
 namespace squashr.ViewModels
 {
-    public delegate void ChangeView(ViewModelBase view);
+    public delegate void ChangeView(Control view);
     public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private ViewModelBase _currentView;
-        public ViewModelBase CurrentView {
+        private Control _currentView;
+        public Control CurrentView {
             get { return _currentView; }
             set 
             {
@@ -32,18 +34,19 @@ namespace squashr.ViewModels
 
         public MainWindowViewModel()
         {
+            Events.Setup();
             if (Data.LocalUsers.Count > 0)
-                CurrentView = new SelectUserViewModel();
+                CurrentView = new SelectUserView();
             else
-                CurrentView = new CreateAccountViewModel();
+                CurrentView = new CreateAccountView();
             ViewChanged += ChangeView;
         }
 
-        public static void InvokeViewChanged(ViewModelBase view)
+        public static void InvokeViewChanged(Control view)
         {
             ViewChanged?.Invoke(view);
         }
-        private void ChangeView(ViewModelBase view)
+        private void ChangeView(Control view)
         {
             CurrentView = view;
         }

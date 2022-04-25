@@ -5,6 +5,7 @@ using squashr.Controls;
 using squashr.Services;
 using System.ComponentModel;
 using System;
+using System.Collections.Generic;
 
 namespace squashr.ViewModels
 {
@@ -12,14 +13,32 @@ namespace squashr.ViewModels
     {
         private string _title;
         public string Title { 
-            get { return _title; }
-            set {
-                _title = value; 
-                OnNotifyPropertyChanged("Title");
+            get{
+                string username = Data.CurrentUser.Username;
+                return username[username.Length - 1] == 's' ? $"{username}' projects" :
+                    $"{username}'s projects";
+            }
+        }
+
+        public List<Control> Projects { 
+            get{
+                List<Control> projects = new List<Control>();
+                int i = 0;
+                foreach(Project project in Data.CurrentUser.Projects)
+                {
+                    ++i;
+                    ProjectBox box = new ProjectBox();
+                    box.Project = project;
+                    projects.Add(box);
+                }
+                projects.Add(new CreateProjectButton());
+                return projects;
             } 
         }
+
         public SelectProjectViewModel()
         {
+            Console.WriteLine("mhmmmm");
         }
 
         public void RenderProjects(StackPanel panel)

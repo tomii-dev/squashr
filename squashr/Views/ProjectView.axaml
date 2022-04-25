@@ -2,9 +2,13 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:squashr.ViewModels"
 			 xmlns:controls="using:squashr.Controls"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.ProjectView">
+	<Design.DataContext>
+		<vm:ProjectViewModel/>
+	</Design.DataContext>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="7*" />
@@ -12,7 +16,19 @@
 			<ColumnDefinition Width="31*"/>
 			<ColumnDefinition Width="31*"/>
 		</Grid.ColumnDefinitions>
-		<controls:Navbar />
-		<TextBlock FontSize="36" Text="{Binding Title}" />
+		<Grid.RowDefinitions>
+			<RowDefinition Height="2*"/>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<controls:Navbar Grid.RowSpan="6"/>
+		<TextBlock Text="{Binding Title}" FontSize="36" Grid.Column="1"
+				   Grid.Row="0"/>
+		<StackPanel Name="ToDo" Grid.Column="1"/>
+		<StackPanel Name="Urgent" Grid.Column="2"/>
+		<StackPanel Name="ImmediateAttention" Grid.Column="3" />
 	</Grid>
 </UserControl>

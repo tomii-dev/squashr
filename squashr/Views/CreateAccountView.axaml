@@ -4,7 +4,6 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.CreateAccountView"
-			 DataContext="{StaticResource CreateAccountViewModel}"
 			 Background="#d4e6f0">
 	<Grid>
 		<Grid.ColumnDefinitions>

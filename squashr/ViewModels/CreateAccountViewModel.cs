@@ -1,17 +1,23 @@
 ﻿using Avalonia.Interactivity;
 using System;
+using squashr.Views;
+using squashr.Services;
 
 namespace squashr.ViewModels
 {
     public class CreateAccountViewModel : ViewModelBase
     {
-        public CreateAccountViewModel() { }
-        public void OnLocalUserButtonClicked(object sender, RoutedEventArgs e)
+        public CreateAccountViewModel() { 
+            Events.LocalUserButtonClicked += OnLocalUserButtonClicked;
+            Console.WriteLine("bruhdjfhjdf");
+        }
+        public void OnLocalUserButtonClicked(object sender)
         {
-            MainWindowViewModel.InvokeViewChanged(new CreateLocalUserViewModel());
+            Console.WriteLine("yep");
+            MainWindowViewModel.InvokeViewChanged(new CreateLocalUserView());
         }
 
-        public void OnWebUserButtonClicked(object sender, RoutedEventArgs e)
+        public void OnWebUserButtonClicked(object sender)
         {
             //MainWindowViewModel.InvokeViewChanged();
         }

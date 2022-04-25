@@ -1,22 +1,22 @@
 ﻿using Avalonia.Controls;
 using squashr.ViewModels;
+using squashr.Services;
 
 namespace squashr.Views
 {
     public partial class CreateProjectView : UserControl
     {
-        CreateProjectViewModel vm;
         private Button _createButton;
         private TextBox _nameInput;
         public CreateProjectView()
         {
             InitializeComponent();
+            DataContext = new CreateProjectViewModel();
             _createButton = this.Find<Button>("CreateBtn");
             _nameInput = this.Find<TextBox>("NameInput");
-            vm = (CreateProjectViewModel)DataContext;
 
-            _createButton.Click += vm.OnCreateButtonPressed;
-            _nameInput.KeyUp += vm.OnNameInputChange;
+            _createButton.Click += (s, e) => Events.Invoke(Events.UIEventType.CreateProjectButtonClicked, s);
+            _nameInput.KeyUp += (s, e) => Events.Invoke(Events.UIEventType.ProjectNameInputChange, s);
         }
     }
 }

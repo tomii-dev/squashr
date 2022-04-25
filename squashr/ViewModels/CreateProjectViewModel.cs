@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using squashr.Models;
 using squashr.Services;
+using squashr.Views;
 
 namespace squashr.ViewModels
 {
@@ -9,15 +10,20 @@ namespace squashr.ViewModels
     {
         private string _projectName;
 
-        public void OnCreateButtonPressed(object sender, RoutedEventArgs e)
+        public CreateProjectViewModel()
+        {
+            Events.ProjectNameInputChange += OnNameInputChange;
+            Events.CreateProjectButtonClicked += OnCreateButtonPressed;
+        }
+        public void OnCreateButtonPressed(object sender)
         {
             Project project = new Project();
             project.Name = _projectName;
             Data.AddProject(project);
-            MainWindowViewModel.InvokeViewChanged(new SelectProjectViewModel());
+            MainWindowViewModel.InvokeViewChanged(new SelectProjectView());
         }
 
-        public void OnNameInputChange(object sender, RoutedEventArgs e)
+        public void OnNameInputChange(object sender)
         {
             _projectName = (sender as TextBox).Text;
         }

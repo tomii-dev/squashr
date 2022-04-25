@@ -1,27 +1,24 @@
-﻿using System.ComponentModel;
-using Avalonia.Controls;
+﻿using System.Collections.Generic;
+using squashr.Controls;
 using squashr.Models;
 using squashr.Services;
-using squashr.Controls;
 
 namespace squashr.ViewModels
 {
-    public class SelectUserViewModel : ViewModelBase, INotifyPropertyChanged
+    public class SelectUserViewModel : ViewModelBase
     {
-        public SelectUserViewModel()
+        public List<UserBox> Users
         {
-
-        }
-
-        public void RenderUsers(StackPanel panel)
-        {
-            foreach(LocalUser user in Data.LocalUsers)
-            {
-                UserBox box = new UserBox();
-                box.User = user;
-                panel.Children.Add(box);
+            get{
+                List<UserBox> users = new List<UserBox>();
+                foreach (LocalUser user in Data.LocalUsers)
+                {
+                    UserBox box = new UserBox();
+                    box.User = user;
+                    users.Add(box);
+                }
+                return users;
             }
-  
         }
     }
 }

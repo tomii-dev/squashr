@@ -1,28 +1,25 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.Interactivity;
+﻿using Avalonia.Controls;
+using squashr.Services;
 using squashr.ViewModels;
+using System;
 
 namespace squashr.Views
 {
     public partial class CreateAccountView : UserControl
     {
-        CreateAccountViewModel vm;
         private Button _createLocalUserButton;
         private Button _createWebUserButton;
 
         public CreateAccountView()
         {
             InitializeComponent();
-
-            vm = (CreateAccountViewModel)DataContext;
+            DataContext = new CreateAccountViewModel();
 
             _createLocalUserButton = this.Find<Button>("createLocal");
             _createWebUserButton = this.Find<Button>("createWeb");
 
-            _createLocalUserButton.Click += vm.OnLocalUserButtonClicked;
-            _createWebUserButton.Click += vm.OnWebUserButtonClicked;
+            _createLocalUserButton.Click += (o, e) => 
+                Events.Invoke(Events.UIEventType.LocalUserButtonClicked, o);
         }
     }
 }
