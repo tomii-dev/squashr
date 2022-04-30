@@ -1,7 +1,9 @@
 ﻿using squashr.Models;
-using Avalonia.Controls;
 using squashr.Services;
+using squashr.Controls;
 using System.ComponentModel;
+using System.Collections.Generic;
+using System;
 
 namespace squashr.ViewModels
 {
@@ -9,6 +11,9 @@ namespace squashr.ViewModels
     {
         private Project _project;
         private string _title;
+        private List<BugBox> _toDo;
+        private List<BugBox> _urgent;
+        private List<BugBox> _immediate;
         public string Title
         {
             get { return _title; }
@@ -19,12 +24,51 @@ namespace squashr.ViewModels
             }
         }
 
-        public ProjectViewModel() 
-            => Events.ProjectOpened += setProject;
+        public List<BugBox> ToDo
+        {
+            get { return _toDo; }
+            set
+            {
+                _toDo = value;
+                OnNotifyPropertyChanged("ToDo");
+            }
+        }
+        public List<BugBox> Urgent
+        {
+            get { return _urgent; }
+        }
+        public List<BugBox> Immediate { 
+            get { return _immediate; } 
+        }
+
+        public ProjectViewModel()
+        {
+            Events.ProjectOpened += setProject;
+            _toDo = new List<BugBox>();
+        }
 
         private void Update()
         {
             Title = _project.Name;
+            foreach(Bug bug in _project.Bugs)
+            {
+                Console.WriteLine(bug.Title);
+                BugBox bugBox = new BugBox{ Bug = bug };
+                switch (bug.Severity)
+                {
+                    case Bug.BugSeverity.ToDo:
+                        ToDo.Add(bugBox);
+                        break;
+                    case Bug.BugSeverity.Urgent:
+                        _urgent.Add(bugBox);
+                        break;
+                    case Bug.BugSeverity.Immediate:
+                        _immediate.Add(bugBox);
+                        break;
+                        
+                }
+            }
+
         }
 
         public void setProject(object proj)

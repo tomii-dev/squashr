@@ -21,7 +21,7 @@
 			<ColumnDefinition Width="4*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="2*"/>
+			<RowDefinition Height="1*"/>
 			<RowDefinition />
 			<RowDefinition />
 			<RowDefinition />
@@ -32,25 +32,43 @@
 		<TextBlock Text="{Binding Title}" FontSize="36" Grid.Column="1"
 				   Grid.Row="0" Grid.ColumnSpan="7" Margin="30" HorizontalAlignment="Center"/>
 		<Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
-				BorderBrush="#b6f0f0" BorderThickness="7">
-			<StackPanel Name="ToDo" Background="#b6f0f0">
-				<TextBlock Text="to do" FontSize="26" HorizontalAlignment="Center"
-						   Margin="10"/>
-			</StackPanel>
+				BorderBrush="#b6f0f0" BorderThickness="8">
+			<ItemsControl Items="{Binding ToDo}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Name="ToDo" Background="#b6f0f0">
+							<TextBlock Text="to do" FontSize="26" HorizontalAlignment="Center"
+									   Margin="10"/>
+						</StackPanel>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
 		</Border>
 		<Border Grid.Column="4" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
-				BorderBrush="#22c6dc" BorderThickness="7">
-			<StackPanel Name="Urgent" Background="#22c6dc">
-				<TextBlock Text="urgent" FontSize="26" HorizontalAlignment="Center"
-						   Margin="10"/>
-			</StackPanel>
+				BorderBrush="#22c6dc" BorderThickness="8">
+			<ItemsControl Items="{Binding Urgent}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Background="#22c6dc">
+							<TextBlock Text="urgent" FontSize="26" HorizontalAlignment="Center"
+									   Margin="10"/>
+						</StackPanel>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
 		</Border>
 		<Border Grid.Column="6" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
-				BorderBrush="#ff597d" BorderThickness="7">
-			<StackPanel Name="ImmediateAttention" Background="#ff597d">
-				<TextBlock Text="immediate attention" FontSize="22" HorizontalAlignment="Center"
-						   Margin="10"/>
-			</StackPanel>
+				BorderBrush="#ff597d" BorderThickness="8">
+			<ItemsControl Items="{Binding Immediate}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Background="#ff597d">
+							<TextBlock Text="immediate attention" FontSize="22" HorizontalAlignment="Center"
+									   Margin="10"/>
+						</StackPanel>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
 		</Border>
 	</Grid>
 </UserControl>
