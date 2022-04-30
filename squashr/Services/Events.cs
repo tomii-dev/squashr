@@ -8,10 +8,10 @@ namespace squashr.Services
     public static class Events
     {
         private static Dictionary<UIEventType, Action<object>> _uiEventDict;
-        private static Dictionary<LogicEventType, Action> _logicEventDict;
+        private static Dictionary<RedirectEventType, Action<object>> _redirectEventDict;
 
         public delegate void UIEvent(object sender);
-        public delegate void LogicEvent();
+        public delegate void RedirectEvent(object data);
 
         public static event UIEvent LocalUserButtonClicked;
         public static event UIEvent UsernameInputChanged;
@@ -19,8 +19,11 @@ namespace squashr.Services
         public static event UIEvent CreateButtonClicked;
         public static event UIEvent CreateProjectButtonClicked;
         public static event UIEvent ProjectNameInputChange;
+
+        public static event RedirectEvent ProjectOpened;
         public static void Setup()
         {
+            ProjectOpened += (o) =>{};
             _uiEventDict = new Dictionary<UIEventType, Action<object>>()
             {
                 {UIEventType.LocalUserButtonClicked, (o) => LocalUserButtonClicked.Invoke(o) },
@@ -31,8 +34,9 @@ namespace squashr.Services
                 {UIEventType.ProjectNameInputChange, (o) => ProjectNameInputChange.Invoke(o)}
             };
 
-            _logicEventDict = new Dictionary<LogicEventType, Action>()
+            _redirectEventDict = new Dictionary<RedirectEventType, Action<object>>()
             {
+                {RedirectEventType.ProjectOpened, (o) => ProjectOpened.Invoke(o)}
             };
         }
 
@@ -46,14 +50,15 @@ namespace squashr.Services
             ProjectNameInputChange
         }
 
-        public enum LogicEventType
+        public enum RedirectEventType
         {
+            ProjectOpened
         }
 
         public static void Invoke(UIEventType e, object sender) 
             => _uiEventDict[e](sender);
 
-        public static void Invoke(LogicEventType e) 
-            => _logicEventDict[e]();
+        public static void Invoke(RedirectEventType e, object data) 
+            => _redirectEventDict[e](data);
     }
 }

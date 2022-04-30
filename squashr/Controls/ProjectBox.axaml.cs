@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using squashr.Models;
 using squashr.ViewModels;
 using squashr.Views;
+using squashr.Services;
 
 namespace squashr.Controls
 {
@@ -31,7 +32,7 @@ namespace squashr.Controls
 
         private void OnButtonClicked(object sender, RoutedEventArgs e)
         {
-            MainWindowViewModel.InvokeViewChanged(new ProjectView());
+            Events.Invoke(Events.RedirectEventType.ProjectOpened, _project);
         }
     }
 }

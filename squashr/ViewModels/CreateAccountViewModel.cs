@@ -9,11 +9,9 @@ namespace squashr.ViewModels
     {
         public CreateAccountViewModel() { 
             Events.LocalUserButtonClicked += OnLocalUserButtonClicked;
-            Console.WriteLine("bruhdjfhjdf");
         }
         public void OnLocalUserButtonClicked(object sender)
         {
-            Console.WriteLine("yep");
             MainWindowViewModel.InvokeViewChanged(new CreateLocalUserView());
         }
 

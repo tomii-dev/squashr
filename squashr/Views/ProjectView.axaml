@@ -11,10 +11,14 @@
 	</Design.DataContext>
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="7*" />
-			<ColumnDefinition Width="31*"/>
-			<ColumnDefinition Width="31*"/>
-			<ColumnDefinition Width="31*"/>
+			<ColumnDefinition Width="6*" />
+			<ColumnDefinition Width="4*" />
+			<ColumnDefinition Width="26*"/>
+			<ColumnDefinition Width="4*"/>
+			<ColumnDefinition Width="26*"/>
+			<ColumnDefinition Width="4*"/>
+			<ColumnDefinition Width="26*"/>
+			<ColumnDefinition Width="4*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="2*"/>
@@ -26,9 +30,27 @@
 		</Grid.RowDefinitions>
 		<controls:Navbar Grid.RowSpan="6"/>
 		<TextBlock Text="{Binding Title}" FontSize="36" Grid.Column="1"
-				   Grid.Row="0"/>
-		<StackPanel Name="ToDo" Grid.Column="1"/>
-		<StackPanel Name="Urgent" Grid.Column="2"/>
-		<StackPanel Name="ImmediateAttention" Grid.Column="3" />
+				   Grid.Row="0" Grid.ColumnSpan="7" Margin="30" HorizontalAlignment="Center"/>
+		<Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
+				BorderBrush="#b6f0f0" BorderThickness="7">
+			<StackPanel Name="ToDo" Background="#b6f0f0">
+				<TextBlock Text="to do" FontSize="26" HorizontalAlignment="Center"
+						   Margin="10"/>
+			</StackPanel>
+		</Border>
+		<Border Grid.Column="4" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
+				BorderBrush="#22c6dc" BorderThickness="7">
+			<StackPanel Name="Urgent" Background="#22c6dc">
+				<TextBlock Text="urgent" FontSize="26" HorizontalAlignment="Center"
+						   Margin="10"/>
+			</StackPanel>
+		</Border>
+		<Border Grid.Column="6" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
+				BorderBrush="#ff597d" BorderThickness="7">
+			<StackPanel Name="ImmediateAttention" Background="#ff597d">
+				<TextBlock Text="immediate attention" FontSize="22" HorizontalAlignment="Center"
+						   Margin="10"/>
+			</StackPanel>
+		</Border>
 	</Grid>
 </UserControl>

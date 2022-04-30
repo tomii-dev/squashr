@@ -12,13 +12,7 @@
 		</Grid.RowDefinitions>
 		<TextBlock Text="select user" HorizontalAlignment="Center"
 			FontSize="36" Margin="20" Grid.Row="0"/>
-		<ItemsControl Items="{Binding Users}">
-			<ItemsControl.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel HorizontalAlignment="Center" Grid.Row="1" 
-								VerticalAlignment="Top" Orientation="Horizontal" />
-				</ItemsPanelTemplate>
-			</ItemsControl.ItemsPanel>
-		</ItemsControl>
+		<StackPanel Name="Users" HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal"
+					VerticalAlignment="Top"/>
 	</Grid>
 </UserControl>

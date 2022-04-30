@@ -8,6 +8,7 @@ namespace squashr.Views
         public ProjectView()
         {
             InitializeComponent();
+            DataContext = new ProjectViewModel();
         }
     }
 }

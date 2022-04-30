@@ -5,7 +5,7 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Controls.CreateProjectButton">
 	<Button Name="Btn" Background="#3bffb4" Width="200" Height="250"
-			HorizontalContentAlignment="Center">
+			HorizontalContentAlignment="Center" Margin="20">
 		<TextBlock FontSize="26" Text="create project" Margin="10" />
 	</Button>
 </UserControl>

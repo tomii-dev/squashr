@@ -5,7 +5,7 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Controls.Navbar">
 	<StackPanel Background="#22c6dc" VerticalAlignment="Stretch">
-		<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"
+		<Button Name="BugBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"
 				Background="#22c6dc">
 			<Image Source="/Assets/icon.ico"/>
 		</Button>

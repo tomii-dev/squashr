@@ -6,6 +6,8 @@ using squashr.Services;
 using System.ComponentModel;
 using System;
 using System.Collections.Generic;
+using squashr.Views;
+using squashr.ViewModels;
 
 namespace squashr.ViewModels
 {
@@ -37,23 +39,12 @@ namespace squashr.ViewModels
         }
 
         public SelectProjectViewModel()
-        {
-            Console.WriteLine("mhmmmm");
-        }
-
-        public void RenderProjects(StackPanel panel)
-        {
-            if (Data.CurrentUser.Projects != null)
-                foreach (Project project in Data.CurrentUser.Projects)
-                {
-                    Console.WriteLine(project.Name);
-                    ProjectBox box = new ProjectBox();
-                    box.Project = project;
-                    box.Find<TextBlock>("Title").Text = project.Name;
-                    panel.Children.Add(box);
-                }
-            panel.Children.Add(new CreateProjectButton());
-        }
+            => Events.ProjectOpened += (o) => {
+                ProjectView view = new ProjectView();
+                ProjectViewModel vm = (ProjectViewModel)view.DataContext;
+                vm.setProject(o);
+                MainWindowViewModel.InvokeViewChanged(view);
+            };
 
         #region INotifyPropertyChanged Members
 
