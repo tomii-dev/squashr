@@ -19,11 +19,11 @@ namespace squashr.Services
         public static event UIEvent CreateButtonClicked;
         public static event UIEvent CreateProjectButtonClicked;
         public static event UIEvent ProjectNameInputChange;
+        public static event UIEvent SeveritySliderChange;
 
         public static event RedirectEvent ProjectOpened;
         public static void Setup()
         {
-            ProjectOpened += (o) =>{};
             _uiEventDict = new Dictionary<UIEventType, Action<object>>()
             {
                 {UIEventType.LocalUserButtonClicked, (o) => LocalUserButtonClicked.Invoke(o) },
@@ -31,7 +31,8 @@ namespace squashr.Services
                 {UIEventType.PasswordInputChanged, (o) => PasswordInputChanged.Invoke(o)},
                 {UIEventType.CreateButtonClicked, (o) => CreateButtonClicked.Invoke(o)},
                 {UIEventType.CreateProjectButtonClicked, (o) => CreateProjectButtonClicked.Invoke(o)},
-                {UIEventType.ProjectNameInputChange, (o) => ProjectNameInputChange.Invoke(o)}
+                {UIEventType.ProjectNameInputChange, (o) => ProjectNameInputChange.Invoke(o)},
+                {UIEventType.SeveritySliderChange, (o) => SeveritySliderChange.Invoke(o)}
             };
 
             _redirectEventDict = new Dictionary<RedirectEventType, Action<object>>()
@@ -47,7 +48,8 @@ namespace squashr.Services
             PasswordInputChanged,
             CreateButtonClicked,
             CreateProjectButtonClicked,
-            ProjectNameInputChange
+            ProjectNameInputChange,
+            SeveritySliderChange
         }
 
         public enum RedirectEventType

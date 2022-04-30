@@ -33,16 +33,19 @@
 				   Grid.Row="0" Grid.ColumnSpan="7" Margin="30" HorizontalAlignment="Center"/>
 		<Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
 				BorderBrush="#b6f0f0" BorderThickness="8">
-			<ItemsControl Items="{Binding ToDo}">
-				<ItemsControl.ItemsPanel>
-					<ItemsPanelTemplate>
-						<StackPanel Name="ToDo" Background="#b6f0f0">
-							<TextBlock Text="to do" FontSize="26" HorizontalAlignment="Center"
-									   Margin="10"/>
-						</StackPanel>
-					</ItemsPanelTemplate>
-				</ItemsControl.ItemsPanel>
-			</ItemsControl>
+			<StackPanel Background="#b6f0f0">
+				<TextBlock Text="to do" FontSize="26" HorizontalAlignment="Center"
+					Margin="10"/>
+				<ItemsControl Items="{Binding ToDo}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Name="ToDo" Background="#b6f0f0">
+								<controls:CreateBugButton VerticalAlignment="Bottom"/>
+							</StackPanel>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</StackPanel>
 		</Border>
 		<Border Grid.Column="4" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
 				BorderBrush="#22c6dc" BorderThickness="8">

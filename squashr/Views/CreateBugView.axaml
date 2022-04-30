@@ -1,0 +1,29 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			FontFamily="Gidole" x:Class="squashr.Views.CreateBugView"
+			Background="#d4e6f0">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="3">
+			<Slider Name="Severity" Maximum="2" IsSnapToTickEnabled="True"
+				TickFrequency="1"/>
+			<TextBlock Text="{Binding Severity}" FontSize="20" HorizontalAlignment="Center"/>
+		</StackPanel>
+	</Grid>
+</UserControl>
