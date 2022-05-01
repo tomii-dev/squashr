@@ -19,9 +19,13 @@ namespace squashr.Services
         public static event UIEvent CreateButtonClicked;
         public static event UIEvent CreateProjectButtonClicked;
         public static event UIEvent ProjectNameInputChange;
-        public static event UIEvent SeveritySliderChange;
+        public static event UIEvent BugTitleInputChanged;
+        public static event UIEvent SeveritySliderChanged;
+        public static event UIEvent CreateBugButtonClicked;
 
         public static event RedirectEvent ProjectOpened;
+        public static event RedirectEvent CreateBugPageOpened;
+        public static event RedirectEvent BugOpened;
         public static void Setup()
         {
             _uiEventDict = new Dictionary<UIEventType, Action<object>>()
@@ -32,12 +36,16 @@ namespace squashr.Services
                 {UIEventType.CreateButtonClicked, (o) => CreateButtonClicked.Invoke(o)},
                 {UIEventType.CreateProjectButtonClicked, (o) => CreateProjectButtonClicked.Invoke(o)},
                 {UIEventType.ProjectNameInputChange, (o) => ProjectNameInputChange.Invoke(o)},
-                {UIEventType.SeveritySliderChange, (o) => SeveritySliderChange.Invoke(o)}
+                {UIEventType.BugTitleInputChanged, (o) => BugTitleInputChanged.Invoke(o)},
+                {UIEventType.SeveritySliderChanged, (o) => SeveritySliderChanged.Invoke(o)},
+                {UIEventType.CreateBugButtonClicked, (o) => CreateBugButtonClicked.Invoke(o)}
             };
 
             _redirectEventDict = new Dictionary<RedirectEventType, Action<object>>()
             {
-                {RedirectEventType.ProjectOpened, (o) => ProjectOpened.Invoke(o)}
+                {RedirectEventType.ProjectOpened, (o) => ProjectOpened.Invoke(o)},
+                {RedirectEventType.CreateBugPageOpened, (o) => CreateBugPageOpened.Invoke(o)},
+                {RedirectEventType.BugOpened, (o) => BugOpened.Invoke(o)}
             };
         }
 
@@ -49,12 +57,16 @@ namespace squashr.Services
             CreateButtonClicked,
             CreateProjectButtonClicked,
             ProjectNameInputChange,
-            SeveritySliderChange
+            SeveritySliderChanged,
+            BugTitleInputChanged,
+            CreateBugButtonClicked
         }
 
         public enum RedirectEventType
         {
-            ProjectOpened
+            ProjectOpened,
+            CreateBugPageOpened,
+            BugOpened,
         }
 
         public static void Invoke(UIEventType e, object sender) 

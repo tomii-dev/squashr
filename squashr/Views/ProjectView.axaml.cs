@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using squashr.ViewModels;
+using squashr.Controls;
 
 namespace squashr.Views
 {

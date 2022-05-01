@@ -49,29 +49,37 @@
 		</Border>
 		<Border Grid.Column="4" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
 				BorderBrush="#22c6dc" BorderThickness="8">
-			<ItemsControl Items="{Binding Urgent}">
-				<ItemsControl.ItemsPanel>
-					<ItemsPanelTemplate>
-						<StackPanel Background="#22c6dc">
-							<TextBlock Text="urgent" FontSize="26" HorizontalAlignment="Center"
-									   Margin="10"/>
-						</StackPanel>
-					</ItemsPanelTemplate>
-				</ItemsControl.ItemsPanel>
-			</ItemsControl>
+			<StackPanel Background="#22c6dc">
+				<TextBlock Text="urgent" FontSize="26" HorizontalAlignment="Center"
+										   Margin="10"/>
+				<ItemsControl Items="{Binding Urgent}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Background="#22c6dc">
+								<controls:CreateBugButton VerticalAlignment="Bottom"/>
+							</StackPanel>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</StackPanel>
 		</Border>
 		<Border Grid.Column="6" Grid.Row="1" Grid.RowSpan="4" CornerRadius="20"
 				BorderBrush="#ff597d" BorderThickness="8">
-			<ItemsControl Items="{Binding Immediate}">
-				<ItemsControl.ItemsPanel>
-					<ItemsPanelTemplate>
-						<StackPanel Background="#ff597d">
-							<TextBlock Text="immediate attention" FontSize="22" HorizontalAlignment="Center"
-									   Margin="10"/>
-						</StackPanel>
-					</ItemsPanelTemplate>
-				</ItemsControl.ItemsPanel>
-			</ItemsControl>
+			<StackPanel Background="#ff597d">
+				<TextBlock Text="immediate attention" FontSize="22" HorizontalAlignment="Center"
+					Margin="10"/>
+				<StackPanel Background="#ff597d">
+					<ItemsControl Items="{Binding Immediate}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel Background="#ff597d">
+									<controls:CreateBugButton VerticalAlignment="Bottom" />
+								</StackPanel>
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+					</ItemsControl>
+				</StackPanel>
+			</StackPanel>
 		</Border>
 	</Grid>
 </UserControl>

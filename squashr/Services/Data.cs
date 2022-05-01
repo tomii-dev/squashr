@@ -31,6 +31,7 @@ namespace squashr.Services
             FileStream fileStream = new FileStream("usr.sq", FileMode.OpenOrCreate, FileAccess.Write);
             Serializer.Serialize(fileStream, _localUsers);
             fileStream.Close();
+            _currentUser = _localUsers.Find(user => user.Username == _currentUser.Username);
         }
         public static void AddLocalUser(LocalUser localUser)
         {
@@ -40,9 +41,15 @@ namespace squashr.Services
 
         public static void AddProject(Project project)
         {
-            foreach (LocalUser user in _localUsers)
-                if(user == _currentUser)
-                    user.Projects.Add(project);
+            _localUsers.Find(user => user == _currentUser)
+                .Projects.Add(project);
+            Push();
+        }
+
+        public static void AddBug(Project project, Bug bug)
+        {
+            LocalUser user = _localUsers.Find(user => user == _currentUser);
+            user.Projects.Find(p => p == project).Bugs.Add(bug);
             Push();
         }
     }

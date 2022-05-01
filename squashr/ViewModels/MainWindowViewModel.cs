@@ -40,6 +40,16 @@ namespace squashr.ViewModels
             else
                 CurrentView = new CreateAccountView();
             ViewChanged += ChangeView;
+            Events.ProjectOpened += OnProjectOpened;
+        }
+
+        public static void OnProjectOpened(object o)
+        {
+            ProjectView view = new ProjectView();
+            ProjectViewModel vm = (ProjectViewModel)view.DataContext;
+            vm.setProject(o);
+            InvokeViewChanged(view);
+            Events.ProjectOpened -= OnProjectOpened;
         }
 
         public static void InvokeViewChanged(Control view)

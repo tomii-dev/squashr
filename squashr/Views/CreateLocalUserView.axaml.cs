@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
 using squashr.Services;
 using squashr.ViewModels;
 
@@ -20,6 +21,11 @@ namespace squashr.Views
             _usernameInput.KeyUp += (s, e) => Events.Invoke(Events.UIEventType.UsernameInputChanged, s);
             _passwordInput.KeyUp += (s, e) => Events.Invoke(Events.UIEventType.PasswordInputChanged, s);
             _createButton.Click += (s, e) => Events.Invoke(Events.UIEventType.CreateButtonClicked, s);
+        }
+
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
         }
     }
 }

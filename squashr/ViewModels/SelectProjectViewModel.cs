@@ -38,13 +38,6 @@ namespace squashr.ViewModels
             } 
         }
 
-        public SelectProjectViewModel()
-            => Events.ProjectOpened += (o) => {
-                ProjectView view = new ProjectView();
-                ProjectViewModel vm = (ProjectViewModel)view.DataContext;
-                vm.setProject(o);
-                MainWindowViewModel.InvokeViewChanged(view);
-            };
 
         #region INotifyPropertyChanged Members
 

@@ -20,7 +20,6 @@ namespace squashr.ViewModels
         {
             Project project = new Project();
             project.Name = _projectName;
-            project.Bugs.Add(new Bug { Title = "balls", Severity = Bug.BugSeverity.ToDo });
             Data.AddProject(project);
             MainWindowViewModel.InvokeViewChanged(new SelectProjectView());
         }

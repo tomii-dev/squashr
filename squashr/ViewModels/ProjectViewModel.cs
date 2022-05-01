@@ -1,6 +1,7 @@
 ﻿using squashr.Models;
 using squashr.Services;
 using squashr.Controls;
+using squashr.Views;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System;
@@ -36,23 +37,43 @@ namespace squashr.ViewModels
         public List<BugBox> Urgent
         {
             get { return _urgent; }
+            set
+            {
+                _urgent = value;
+                OnNotifyPropertyChanged("Urgent");
+            }
         }
         public List<BugBox> Immediate { 
-            get { return _immediate; } 
+            get { return _immediate; }
+            set
+            {
+                _immediate = value;
+                OnNotifyPropertyChanged("Immediate");
+            }
         }
 
         public ProjectViewModel()
         {
-            Events.ProjectOpened += setProject;
+            Console.WriteLine("ummm");
             _toDo = new List<BugBox>();
+            _urgent = new List<BugBox>();
+            _immediate = new List<BugBox>();
+            Events.CreateBugPageOpened += OnCreateBugPageOpened;
         }
 
+        private void OnCreateBugPageOpened(object o)
+        {
+            CreateBugView view = new CreateBugView();
+            CreateBugViewModel vm = (CreateBugViewModel)view.DataContext;
+            vm.Project = _project;
+            MainWindowViewModel.InvokeViewChanged(view);
+            Events.CreateBugPageOpened -= OnCreateBugPageOpened;
+        }
         private void Update()
         {
             Title = _project.Name;
             foreach(Bug bug in _project.Bugs)
             {
-                Console.WriteLine(bug.Title);
                 BugBox bugBox = new BugBox{ Bug = bug };
                 switch (bug.Severity)
                 {
@@ -65,7 +86,6 @@ namespace squashr.ViewModels
                     case Bug.BugSeverity.Immediate:
                         _immediate.Add(bugBox);
                         break;
-                        
                 }
             }
 
