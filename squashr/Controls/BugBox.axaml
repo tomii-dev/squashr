@@ -4,7 +4,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Controls.BugBox">
-	<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+	<Button Name="Btn" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
 		Padding="7" CornerRadius="20" >
 		<TextBlock Name="Title"/>
 	</Button>

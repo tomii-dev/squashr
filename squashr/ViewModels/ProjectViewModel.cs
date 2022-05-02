@@ -54,13 +54,21 @@ namespace squashr.ViewModels
 
         public ProjectViewModel()
         {
-            Console.WriteLine("ummm");
             _toDo = new List<BugBox>();
             _urgent = new List<BugBox>();
             _immediate = new List<BugBox>();
             Events.CreateBugPageOpened += OnCreateBugPageOpened;
+            Events.BugOpened += OnBugOpened;
         }
 
+        private void OnBugOpened(object o)
+        {
+            BugView view = new BugView();
+            BugViewModel vm = (BugViewModel)view.DataContext;
+            vm.Bug = (Bug)o;
+            MainWindowViewModel.InvokeViewChanged(view);
+            Events.BugOpened -= OnBugOpened; 
+        }
         private void OnCreateBugPageOpened(object o)
         {
             CreateBugView view = new CreateBugView();

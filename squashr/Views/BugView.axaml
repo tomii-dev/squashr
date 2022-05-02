@@ -2,6 +2,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:controls="using:squashr.Controls"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 FontFamily="Gidole" x:Class="squashr.Views.BugView">
 	<Grid>
@@ -18,8 +19,16 @@
 			<RowDefinition />
 			<RowDefinition />
 			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
 		</Grid.RowDefinitions>
-		<TextBlock Text="{Binding Title}" FontSize="36" Grid.Column="2"
-				   Grid.Row="1"/>
+		<controls:EditableTextBlock Text="balls" FontSize="36" Grid.Column="2"
+									HorizontalAlignment="Center"/>
 	</Grid>
 </UserControl>
