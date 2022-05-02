@@ -53,6 +53,8 @@ namespace squashr.ViewModels
         {
             Data.AddBug(Project, new Bug { Title = _title, Severity = _severity});
             Events.Invoke(Events.RedirectEventType.ProjectOpened, Project);
+            Events.SeveritySliderChanged -= OnSeveritySliderChanged;
+            Events.BugTitleInputChanged -= OnBugTitleInputChanged;
             Events.CreateBugButtonClicked -= OnCreateBugButtonClicked;
         }
 

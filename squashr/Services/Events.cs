@@ -30,6 +30,8 @@ namespace squashr.Services
         public static event RedirectEvent BugClosed;
         public static void Setup()
         {
+            ProjectOpened += (o) => { };
+            SeveritySliderChanged += (o) => { };
             _uiEventDict = new Dictionary<UIEventType, Action<object>>()
             {
                 {UIEventType.LocalUserButtonClicked, (o) => LocalUserButtonClicked.Invoke(o) },

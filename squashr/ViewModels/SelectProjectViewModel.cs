@@ -36,7 +36,6 @@ namespace squashr.ViewModels
             } 
         }
 
-
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

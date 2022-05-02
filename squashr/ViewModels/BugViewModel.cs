@@ -3,6 +3,7 @@ using squashr.Models;
 using squashr.Controls;
 using squashr.Services;
 using squashr.Views;
+using System;
 
 namespace squashr.ViewModels
 {
@@ -23,7 +24,6 @@ namespace squashr.ViewModels
             set
             {
                 _title = value;
-                OnNotifyPropertyChanged("Title");
             }
         }
 
@@ -44,12 +44,17 @@ namespace squashr.ViewModels
 
         private void OnBugClosed(object o)
         {
+            Events.TextBlockEdited -= OnTextBlockEdited;
+            Bug temp = _bug;
+            temp.Title = _title;
+            Data.UpdateBug(_bug, temp);
             Events.Invoke(Events.RedirectEventType.ProjectOpened, Data.GetBugProject(_bug));
         }
 
         private void Update()
         {
             Title = _bug.Title;
+            TitleBlock.Text = _title;
         }
 
         #region INotifyPropertyChanged Members
