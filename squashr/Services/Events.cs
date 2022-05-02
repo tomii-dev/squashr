@@ -22,10 +22,12 @@ namespace squashr.Services
         public static event UIEvent BugTitleInputChanged;
         public static event UIEvent SeveritySliderChanged;
         public static event UIEvent CreateBugButtonClicked;
+        public static event UIEvent TextBlockEdited;
 
         public static event RedirectEvent ProjectOpened;
         public static event RedirectEvent CreateBugPageOpened;
         public static event RedirectEvent BugOpened;
+        public static event RedirectEvent BugClosed;
         public static void Setup()
         {
             _uiEventDict = new Dictionary<UIEventType, Action<object>>()
@@ -38,14 +40,16 @@ namespace squashr.Services
                 {UIEventType.ProjectNameInputChange, (o) => ProjectNameInputChange.Invoke(o)},
                 {UIEventType.BugTitleInputChanged, (o) => BugTitleInputChanged.Invoke(o)},
                 {UIEventType.SeveritySliderChanged, (o) => SeveritySliderChanged.Invoke(o)},
-                {UIEventType.CreateBugButtonClicked, (o) => CreateBugButtonClicked.Invoke(o)}
+                {UIEventType.CreateBugButtonClicked, (o) => CreateBugButtonClicked.Invoke(o)},
+                {UIEventType.TextBlockEdited, (o) => TextBlockEdited.Invoke(o)}
             };
 
             _redirectEventDict = new Dictionary<RedirectEventType, Action<object>>()
             {
                 {RedirectEventType.ProjectOpened, (o) => ProjectOpened.Invoke(o)},
                 {RedirectEventType.CreateBugPageOpened, (o) => CreateBugPageOpened.Invoke(o)},
-                {RedirectEventType.BugOpened, (o) => BugOpened.Invoke(o)}
+                {RedirectEventType.BugOpened, (o) => BugOpened.Invoke(o)},
+                {RedirectEventType.BugClosed, (o) => BugClosed.Invoke(o)}
             };
         }
 
@@ -59,7 +63,8 @@ namespace squashr.Services
             ProjectNameInputChange,
             SeveritySliderChanged,
             BugTitleInputChanged,
-            CreateBugButtonClicked
+            CreateBugButtonClicked,
+            TextBlockEdited
         }
 
         public enum RedirectEventType
@@ -67,6 +72,7 @@ namespace squashr.Services
             ProjectOpened,
             CreateBugPageOpened,
             BugOpened,
+            BugClosed
         }
 
         public static void Invoke(UIEventType e, object sender) 

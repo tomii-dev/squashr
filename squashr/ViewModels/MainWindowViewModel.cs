@@ -3,6 +3,7 @@ using System.ComponentModel;
 using squashr.Services;
 using squashr.Views;
 using Avalonia.Controls;
+using squashr.Models;
 
 namespace squashr.ViewModels
 {
@@ -47,7 +48,7 @@ namespace squashr.ViewModels
         {
             ProjectView view = new ProjectView();
             ProjectViewModel vm = (ProjectViewModel)view.DataContext;
-            vm.setProject(o);
+            vm.Project = (Project)o;
             InvokeViewChanged(view);
             Events.ProjectOpened -= OnProjectOpened;
         }

@@ -15,6 +15,14 @@ namespace squashr.ViewModels
         private List<BugBox> _toDo;
         private List<BugBox> _urgent;
         private List<BugBox> _immediate;
+
+        public Project Project
+        {
+            set { 
+                _project = value;
+                Update();
+            }
+        }
         public string Title
         {
             get { return _title; }
@@ -97,12 +105,6 @@ namespace squashr.ViewModels
                 }
             }
 
-        }
-
-        public void setProject(object proj)
-        {
-            _project = (Project)proj;
-            Update();
         }
 
         #region INotifyPropertyChanged Members

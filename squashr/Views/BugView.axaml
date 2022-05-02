@@ -28,7 +28,11 @@
 			<RowDefinition />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-		<controls:EditableTextBlock Text="balls" FontSize="36" Grid.Column="2"
+		<controls:EditableTextBlock Name="TitleBlock" Text="balls" FontSize="36" Grid.Column="2"
 									HorizontalAlignment="Center"/>
+		<Button Name="Close" Background="LightGray" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Stretch"
+				Height="50" HorizontalContentAlignment="Center">
+			<TextBlock Text="close" FontSize="22"/>
+		</Button>
 	</Grid>
 </UserControl>

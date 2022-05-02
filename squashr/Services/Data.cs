@@ -52,5 +52,19 @@ namespace squashr.Services
             user.Projects.Find(p => p == project).Bugs.Add(bug);
             Push();
         }
+
+        public static void UpdateBug(Bug org, Bug updated)
+        {
+
+        }
+
+        public static Project GetBugProject(Bug bug)
+        {
+            Project project = null;
+            foreach(LocalUser user in _localUsers)
+                foreach(Project proj in user.Projects)
+                    if(proj.Bugs.Contains(bug)) project = proj;
+            return project;
+        }
     }
 }

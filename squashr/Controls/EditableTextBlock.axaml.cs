@@ -3,6 +3,7 @@ using Avalonia;
 using System;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using squashr.Services;
 
 namespace squashr.Controls
 {
@@ -31,6 +32,7 @@ namespace squashr.Controls
                 _block.FontSize = value;
             }
         }
+
         public EditableTextBlock()
         {
             InitializeComponent();
@@ -61,6 +63,7 @@ namespace squashr.Controls
                 FocusManager.Instance.Focus(null);
                 _border.BorderThickness = Thickness.Parse("0");
             }
+            Events.Invoke(Events.UIEventType.TextBlockEdited, this);
         }
     }
 }

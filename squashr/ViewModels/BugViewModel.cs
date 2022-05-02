@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using squashr.Models;
+using squashr.Controls;
+using squashr.Services;
+using squashr.Views;
 
 namespace squashr.ViewModels
 {
@@ -22,6 +25,26 @@ namespace squashr.ViewModels
                 _title = value;
                 OnNotifyPropertyChanged("Title");
             }
+        }
+
+        public EditableTextBlock TitleBlock { get; set; }
+
+        public BugViewModel()
+        {
+            Events.TextBlockEdited += OnTextBlockEdited;
+            Events.BugClosed += OnBugClosed;
+            Events.ProjectOpened += MainWindowViewModel.OnProjectOpened;
+        }
+
+        private void OnTextBlockEdited(object o)
+        {
+            if (o != TitleBlock) return;
+            _title = (o as EditableTextBlock).Text;
+        }
+
+        private void OnBugClosed(object o)
+        {
+            Events.Invoke(Events.RedirectEventType.ProjectOpened, Data.GetBugProject(_bug));
         }
 
         private void Update()

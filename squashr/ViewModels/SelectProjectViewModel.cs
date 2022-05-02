@@ -25,10 +25,8 @@ namespace squashr.ViewModels
         public List<Control> Projects { 
             get{
                 List<Control> projects = new List<Control>();
-                int i = 0;
                 foreach(Project project in Data.CurrentUser.Projects)
                 {
-                    ++i;
                     ProjectBox box = new ProjectBox();
                     box.Project = project;
                     projects.Add(box);
